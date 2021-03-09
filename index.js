@@ -17,12 +17,26 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) =>{
-    res.render('index')
+    res.render('index', {
+        title: 'Главная страница',
+        isHome: true
+    })
+})
+
+app.get('/courses', (req, res) => {
+    res.render('courses', {
+        title: 'Курсы',
+        isCourses: true
+    })
+
+app.get('/add', (req, res) => {
+    res.render('add', {
+        title: 'Добавить курсы',
+        isAdd: true
+    })
 })
 
 
-app.get('/about', (req, res) => {
-    res.render('about')
 })
 
 const PORT = process.env.PORT || 3000;
